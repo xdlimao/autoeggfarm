@@ -8,7 +8,6 @@ textalert = 'Let the game maximized, running at foreground and play button visib
 pyautogui.alert(text=textalert, title='EGG MacroFarm', button='OK')
 
 def farm():
-    pydirectinput.move(None, -30)
     pydirectinput.press('1')
     pydirectinput.click()
     pydirectinput.press('2')
@@ -23,15 +22,19 @@ def farm():
     pydirectinput.click()
     pydirectinput.press('7')
     pydirectinput.click()
-    time.sleep(0.01)
+    time.sleep(1)
 
 while 1 == 1:
     try:
         playbutton = pyautogui.locateCenterOnScreen("play.png")
-        pydirectinput.moveTo(playbutton.x-30,playbutton.y, 1)
-        pydirectinput.moveTo(playbutton.x,playbutton.y, 1)
+        pydirectinput.moveTo(playbutton.x-30,playbutton.y)
+        pydirectinput.moveTo(playbutton.x,playbutton.y)
         time.sleep(1)
         pydirectinput.click()
-        time.sleep(1)
+        #for some reason, i need to use autogui to move mouse twice to avoid bugs from not real movement
+        pyautogui.moveTo(playbutton.x,playbutton.y-301, 0.5)
+        pydirectinput.moveTo(playbutton.x,playbutton.y-300)
+        time.sleep(2)
+
     except:
         farm()
