@@ -8,6 +8,7 @@ textalert = 'Let the game maximized, running at foreground and play button visib
 pyautogui.alert(text=textalert, title='EGG MacroFarm', button='OK')
 
 def farm():
+    pydirectinput.move(None, -30)
     pydirectinput.press('1')
     pydirectinput.click()
     pydirectinput.press('2')
