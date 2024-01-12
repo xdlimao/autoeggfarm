@@ -4,7 +4,8 @@ import time
 
 #roblox can only see pydirectinput
 
-textalert = 'Let the game maximized, running at foreground and play button visible at screen, use pyautogui fail-safe to stop script running and alt+f4 the \".py\" script. Only press OK when done the previous steps.'
+
+textalert = 'Let the game maximized, english language, running at foreground and play button visible at screen, use pyautogui fail-safe to stop script running and alt+f4 the \".py\" script. Only press OK when done the previous steps.'
 pyautogui.alert(text=textalert, title='EGG MacroFarm', button='OK')
 
 def farm():
@@ -37,4 +38,13 @@ while 1 == 1:
         time.sleep(2)
 
     except:
-        farm()
+        try:
+            reconnectbutton = pyautogui.locateCenterOnScreen("ferr.png")
+            pydirectinput.moveTo(reconnectbutton.x-30,reconnectbutton.y)
+            pydirectinput.moveTo(reconnectbutton.x,reconnectbutton.y)
+            time.sleep(1)
+            pydirectinput.click()
+            time.sleep(10)
+
+        except:
+            farm()
